@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:smarthome/constants.dart';
 import 'package:smarthome/pages/history_page.dart';
 import 'package:smarthome/pages/home_page.dart';
@@ -41,34 +42,56 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context){
     return Scaffold(
       body:pages[selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
-        onDestinationSelected: (index){
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        height:60,
-        backgroundColor: secondaryBgColor,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined,color:selectedIndex == 0? Colors.white :Colors.grey),
-            label: "",
+      bottomNavigationBar:Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Colors.white,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: primaryColor,
+              color: secondaryTextColor,
+              tabs: [
+                GButton(
+                  icon:Icons.home_outlined ,
+                  //text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.timer_outlined,
+                  //text: 'Likes',
+                ),
+                GButton(
+                  icon: Icons.settings,
+                  //text: 'Search',
+                ),
+                GButton(
+                  icon: Icons.face,
+                  //text: 'Profile',
+                ),
+              ],
+              selectedIndex: selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+            ),
           ),
-          NavigationDestination(
-            icon: Icon(Icons.timer_outlined,color:selectedIndex == 1? Colors.white :Colors.grey),
-            label: ""
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings,color:selectedIndex == 2? Colors.white :Colors.grey),
-            label: ""
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.face,color:selectedIndex == 3? Colors.white :Colors.grey),
-            label: ""
-          ),
-        ]
-
+        ),
       ),
 
     );
