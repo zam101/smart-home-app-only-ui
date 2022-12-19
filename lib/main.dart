@@ -52,11 +52,11 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: secondaryBgColor,
         destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home,color:selectedIndex == 0? Colors.white :Colors.grey),
+            icon: Icon(Icons.home_outlined,color:selectedIndex == 0? Colors.white :Colors.grey),
             label: "",
           ),
           NavigationDestination(
-            icon: Icon(Icons.history,color:selectedIndex == 1? Colors.white :Colors.grey),
+            icon: Icon(Icons.timer_outlined,color:selectedIndex == 1? Colors.white :Colors.grey),
             label: ""
           ),
           NavigationDestination(
