@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage> {
   int tabIndex = 0;
-  List<bool> devicesStatus = [true,false,true,false,false,false];
+  List<bool> devicesStatus = [false,true,true,false,false,false];
   Widget tab(IconData icon,String name,int index){
     return Padding(
       padding: const EdgeInsets.only(right:16.0),
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
   }
   Widget device(IconData icon, String name, String value,int index){
     return Card(
-      elevation:2,
+      elevation:0,
       //shadowColor: primaryColor,
       child: Container(
         height:168,
@@ -129,24 +129,28 @@ class _HomePageState extends State<HomePage> {
           ]
         ),
         SizedBox(height:20),
-        GridView(
-          shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: ((MediaQuery.of(context).size.width - 28)/185).toInt() ,
-          crossAxisSpacing: 14,
-          mainAxisSpacing: 14,
-        ),
-        primary: false,
-        children: <Widget>[
-          device(Icons.lightbulb_outlined,"Lightings","Ornar aliquan",0),
-          device(Icons.grass_outlined,"Automatic irrigation","Lacus scelerique",1),
-          device(Icons.curtains_closed_outlined,"Automatic curtains","Proin aliquet",2),
-          device(Icons.speaker_outlined,"Speakers","integer gravida",3),
-          device(Icons.lightbulb_outlined,"Lightings","Ornar aliquan",4),
-          device(Icons.lightbulb_outlined,"Lightings","Ornar aliquan",5),
+        Expanded(
+          child: SingleChildScrollView(
+            child: GridView(
+              shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: ((MediaQuery.of(context).size.width - 28)/185).toInt() ,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 14,
+            ),
+            primary: false,
+            children: <Widget>[
+              device(Icons.lightbulb_outlined,"Lightings","Ornar aliquan",0),
+              device(Icons.grass_outlined,"Automatic irrigation","Lacus scelerique",1),
+              device(Icons.curtains_closed_outlined,"Automatic curtains","Proin aliquet",2),
+              device(Icons.speaker_outlined,"Speakers","integer gravida",3),
+              device(Icons.cleaning_services,"Vacuum","Cursus feugiat",4),
+              device(Icons.hvac,"Air Conditioning","18°",5),
 
-        ],
+            ],
       ),
+          ),
+        ),
        SizedBox(height:14) 
       ]
     );
@@ -210,18 +214,17 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children:[
-                  tab(Icons.bedroom_parent_outlined,"Bedroom",0),
-                  tab(Icons.bathroom_outlined,"Bathroom",1),
-                  tab(Icons.living_outlined,"Living room",2),
-                  tab(Icons.kitchen_outlined,"Kitchen",3),
-                  tab(Icons.garage_outlined,"Garage",4)
+                  tab(Icons.bedroom_parent,"Bedroom",0),
+                  tab(Icons.bathtub,"Bathroom",1),
+                  tab(Icons.chair,"Living room",2),
+                  tab(Icons.kitchen,"Kitchen",3),
+                  tab(Icons.directions_car,"Garage",4)
 
                 ]
-
               ),
             ),
             SizedBox(height:25),
-            Expanded(child: SingleChildScrollView(child: room()))
+            Expanded(child: room())
             
           ]
         ),

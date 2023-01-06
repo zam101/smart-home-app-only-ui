@@ -56,6 +56,7 @@ class _MainPageState extends State<MainPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
+              tabBorderRadius: 10,
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 8,
@@ -75,11 +76,11 @@ class _MainPageState extends State<MainPage> {
                   //text: 'Likes',
                 ),
                 GButton(
-                  icon: Icons.settings,
+                  icon: Icons.settings_outlined,
                   //text: 'Search',
                 ),
                 GButton(
-                  icon: Icons.face,
+                  icon: Icons.person_outline,
                   //text: 'Profile',
                 ),
               ],
