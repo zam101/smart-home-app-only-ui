@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:smarthome/constants.dart';
 import 'package:smarthome/pages/history_page.dart';
@@ -16,8 +17,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: secondaryColor
+    ));
     return MaterialApp(
-      home:MainPage(),
+      home:const MainPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         primaryColorLight: primaryColor,
@@ -37,7 +44,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
-  List<Widget> pages = [HomePage(),HistoryPage(),SettingsPage(),ProfilePage()];
+  List<Widget> pages = [const HomePage(),const HistoryPage(),const SettingsPage(),const ProfilePage()];
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -62,11 +69,11 @@ class _MainPageState extends State<MainPage> {
               gap: 8,
               activeColor: Colors.white,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: primaryColor,
               color: secondaryTextColor,
-              tabs: [
+              tabs: const [
                 GButton(
                   icon:Icons.home_outlined ,
                   //text: 'Home',
