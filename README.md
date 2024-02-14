@@ -6,7 +6,7 @@
 
 ## my app :
 the only deference is the icons .
-![image1.jpeg](./screenshots/image1.jpeg)
+![myapp.png](./screenshots/myapp.png)
 
 ## Installation :
 1. clone this repo
