@@ -174,10 +174,10 @@ class _HistoryPageState extends State<HistoryPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children:[
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children:const [
+                      children:[
                         Text("Air Conditioning",style: TextStyle(color:primaryTextColor,fontSize: 14,fontWeight: FontWeight.w500),),
                         SizedBox(height:4),
                         Text("Cras elit nibh",style: TextStyle(color:secondaryTextColor,fontSize: 14,fontWeight: FontWeight.w400),)
@@ -186,7 +186,8 @@ class _HistoryPageState extends State<HistoryPage> {
                     Switch(
                       splashRadius: 0,
                       inactiveTrackColor: const Color(0xFFD1D1D1),
-                      activeColor:activeColor,
+                      activeColor:secondaryColor,
+                      activeTrackColor: activeColor,
                       value:airCond,
                       onChanged:(bool newValue){
                         setState(() {
@@ -220,7 +221,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
 
                     ),
-                    child:const Text("Save Temperature",style:TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 14 )),
+                    child:const Text("Save Temperature",style:TextStyle(color:secondaryColor,fontWeight: FontWeight.bold,fontSize: 14 )),
                     onPressed: (){},
                     ),
                 ),

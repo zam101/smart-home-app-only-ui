@@ -50,24 +50,25 @@ class _ProfilePageState extends State<ProfilePage> {
                             color:primaryColor,
                             borderRadius: BorderRadius.circular(10)
                           ),
-                          child:Center(child:Icon(icon,color: Colors.white,size: 30,))
+                          child:Center(child:Icon(icon,color: secondaryColor,size: 30,))
                         ),
-                        SizedBox(width:12),
+                        const SizedBox(width:12),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[
-                            Text(name,style:TextStyle(color:primaryTextColor,fontSize:14,fontWeight: FontWeight.w500),),
-                            Text("$value Devices",style:TextStyle(color:secondaryTextColor,fontSize: 14,fontWeight: FontWeight.w400))
+                            Text(name,style:const TextStyle(color:primaryTextColor,fontSize:14,fontWeight: FontWeight.w500),),
+                            Text("$value Devices",style:const TextStyle(color:secondaryTextColor,fontSize: 14,fontWeight: FontWeight.w400))
                           ]
                         )
                       ],
                     ),
                     Switch(
                       splashRadius: 0,
-                      inactiveTrackColor: Color(0xFFD1D1D1),
-                      activeColor:activeColor,
+                      inactiveTrackColor: const Color(0xFFD1D1D1),
+                      activeColor:secondaryColor,
+                      activeTrackColor: activeColor,
                       value:devicesStatus[index],
                       onChanged:(bool newValue){
                         setState(() {
@@ -95,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             child:Center(child: Padding(
                               padding: const EdgeInsets.symmetric(horizontal:8.0),
-                              child: Text(rooms[index],style: TextStyle(color:secondaryTextColor,fontWeight: FontWeight.w400),),
+                              child: Text(rooms[index],style: const TextStyle(color:secondaryTextColor,fontWeight: FontWeight.w400),),
                             ))
                           ),
                         );
@@ -105,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ):
-                SizedBox(height:0)
+                const SizedBox(height:0)
               ],
             ),
           )
@@ -123,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height:28
             ),
             Row(
@@ -138,7 +139,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       color:secondaryBgColor,
                       borderRadius: BorderRadius.circular(10)
                     ),
-                    child:Icon(Icons.arrow_back)
+                    child:const Icon(Icons.arrow_back)
                   )
                 ),
                 InkWell(
@@ -149,13 +150,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       color:secondaryBgColor,
                       borderRadius: BorderRadius.circular(10)
                     ),
-                    child:Icon(Icons.more_vert)
+                    child:const Icon(Icons.more_vert)
                   )
                 ),
                 
               ]
             ),
-            SizedBox(
+            const SizedBox(
               height:20
             ),
             Expanded(

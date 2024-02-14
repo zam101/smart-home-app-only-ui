@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       child: ConstrainedBox(
         //width:69,
         //height:78,
-        constraints: BoxConstraints(minWidth:69,maxWidth:90,minHeight:78,maxHeight: 78),
+        constraints: const BoxConstraints(minWidth:69,maxWidth:90,minHeight:78,maxHeight: 78),
         child:Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 
                 child: Icon(
                   icon,
-                  color: tabIndex == index ? Colors.white : secondaryTextColor,
+                  color: tabIndex == index ? secondaryColor : secondaryTextColor,
                   size:28
                   )
                 )
@@ -77,24 +77,24 @@ class _HomePageState extends State<HomePage> {
             children:[
               Icon(
                 icon,size:28,
-                color:devicesStatus[index] == true ? Colors.white : secondaryTextColor
+                color:devicesStatus[index] == true ? secondaryColor : secondaryTextColor
                 ),
               //SizedBox(height:14),
-              Spacer(),
+              const Spacer(),
               Text(
                 name,
                 style:TextStyle(
                   fontSize:14,
-                  color:devicesStatus[index] == true ? Colors.white : primaryTextColor,
+                  color:devicesStatus[index] == true ? secondaryColor : primaryTextColor,
                   fontWeight:FontWeight.w500
                   )
                 ),
-              SizedBox(height:7),
+              const SizedBox(height:7),
               Text(
                 value,
                 style:TextStyle(
                   fontSize:14,
-                  color:devicesStatus[index] == true ? Colors.white : secondaryTextColor,
+                  color:devicesStatus[index] == true ? secondaryColor : secondaryTextColor,
                   fontWeight:FontWeight.w400
                   )
                 ),
@@ -102,8 +102,9 @@ class _HomePageState extends State<HomePage> {
               //Spacer(),
               Switch(
                 splashRadius: 0,
-                inactiveTrackColor: Color(0xFFD1D1D1),
-                activeColor:activeColor,
+                inactiveTrackColor: const Color(0xFFD1D1D1),
+                activeColor:secondaryColor,
+                activeTrackColor: activeColor,
                 value:devicesStatus[index],
                 onChanged:(bool newValue){
                   setState(() {
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> {
   Widget room(){
     return Column(
       children:[
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children:[
@@ -128,13 +129,13 @@ class _HomePageState extends State<HomePage> {
             Icon(Icons.add,size:24)
           ]
         ),
-        SizedBox(height:20),
+        const SizedBox(height:20),
         Expanded(
           child: SingleChildScrollView(
             child: GridView(
               shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: ((MediaQuery.of(context).size.width - 28)/185).toInt() ,
+              crossAxisCount: ((MediaQuery.of(context).size.width - 28)~/185).toInt() ,
               crossAxisSpacing: 14,
               mainAxisSpacing: 14,
             ),
@@ -151,7 +152,7 @@ class _HomePageState extends State<HomePage> {
       ),
           ),
         ),
-       SizedBox(height:14) 
+       const SizedBox(height:14) 
       ]
     );
   }
@@ -165,7 +166,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children:[
-            SizedBox(
+            const SizedBox(
               height:28
               ),
             Row(
@@ -180,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                       color:secondaryBgColor,
                       borderRadius: BorderRadius.circular(10)
                     ),
-                    child:Icon(Icons.menu)
+                    child:const Icon(Icons.menu)
                   )
                 ),
                 InkWell(
@@ -191,14 +192,14 @@ class _HomePageState extends State<HomePage> {
                       color:secondaryBgColor,
                       borderRadius: BorderRadius.circular(10)
                     ),
-                    child:Icon(Icons.notifications_outlined)
+                    child:const Icon(Icons.notifications_outlined)
                   )
                 ),
                 
               ]
             ),
-            SizedBox(height:20),
-            Text(
+            const SizedBox(height:20),
+            const Text(
               "16 July 2021",
               style:TextStyle(
                 fontSize: 16,
@@ -206,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                 color:primaryTextColor,
               )
             ),
-            SizedBox(
+            const SizedBox(
               height:20
             ),
             Container(
@@ -223,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                 ]
               ),
             ),
-            SizedBox(height:25),
+            const SizedBox(height:25),
             Expanded(child: room())
             
           ]
